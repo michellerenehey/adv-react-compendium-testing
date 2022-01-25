@@ -21,6 +21,7 @@ function App() {
   }, [type]);
 
   if (loading) return <h3>Loading...</h3>;
+
   return (
     <div className="App">
       <h1>BREWERIES!</h1>
