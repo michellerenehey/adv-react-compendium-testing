@@ -1,19 +1,27 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import './App.css';
-// import { fetchBrews } from './services/breweries';
+import { fetchBrews } from './services/breweries';
 
 function App() {
+  const [breweries, setBreweries] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetch('https://api.openbrewerydb.org/breweries');
-      const temp = await data.json();
-      console.log(temp);
+      const data = await fetchBrews();
+      setBreweries(data);
+      console.log(data);
     };
     fetchData();
-  });
+  }, []);
 
-  return <div className="App">app component</div>;
+  return (
+    <div className="App">
+      {breweries.map((brew) => (
+        <p key={brew.id}>{brew.name}</p>
+      ))}
+    </div>
+  );
 }
 
 export default App;
