@@ -7,7 +7,7 @@ import Controls from './components/BrewCard/Controls/Controls';
 
 function App() {
   const [breweries, setBreweries] = useState([]);
-  const [type, setType] = useState('micro');
+  const [type, setType] = useState('all');
 
   useEffect(() => {
     const fetchData = async () => {

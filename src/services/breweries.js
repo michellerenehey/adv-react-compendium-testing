@@ -1,6 +1,9 @@
 export async function fetchBrews(type) {
   const params = new URLSearchParams();
-  params.set('by_type', type);
+
+  if (type !== 'all') {
+    params.set('by_type', type);
+  }
 
   const response = await fetch(`https://api.openbrewerydb.org/breweries?${params.toString()}`);
 

@@ -4,6 +4,7 @@ export default function Controls({ type, setType }) {
   return (
     <div>
       <select value={type} onChange={(e) => setType(e.target.value)}>
+        <option>all</option>
         <option>micro</option>
         <option>nano</option>
         <option>regional</option>
