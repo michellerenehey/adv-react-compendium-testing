@@ -1,25 +1,19 @@
-import logo from './logo.svg';
+import { useEffect } from 'react';
+
 import './App.css';
+// import { fetchBrews } from './services/breweries';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetch('https://api.openbrewerydb.org/breweries');
+      const temp = await data.json();
+      console.log(temp);
+    };
+    fetchData();
+  });
+
+  return <div className="App">app component</div>;
 }
 
 export default App;
