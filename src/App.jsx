@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import './App.css';
 import { fetchBrews } from './services/breweries';
+import BrewCard from './components/BrewCard/BrewCard';
 
 function App() {
   const [breweries, setBreweries] = useState([]);
@@ -17,9 +18,10 @@ function App() {
 
   return (
     <div className="App">
-      {breweries.map((brew) => (
-        <p key={brew.id}>{brew.name}</p>
-      ))}
+      <h1>BREWERIES!</h1>
+      <div>
+        <BrewCard breweries={breweries} />
+      </div>
     </div>
   );
 }
