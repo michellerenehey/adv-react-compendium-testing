@@ -1,6 +1,10 @@
-export async function fetchBrews() {
-  const dataPull = await fetch('https://api.openbrewerydb.org/breweries');
-  const data = dataPull.json();
+export async function fetchBrews(type) {
+  const params = new URLSearchParams();
+  params.set('by_type', type);
+
+  const response = await fetch(`https://api.openbrewerydb.org/breweries?${params.toString()}`);
+
+  const data = response.json();
   return data;
 }
 
