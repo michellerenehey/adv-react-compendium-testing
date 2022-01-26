@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import BrewCard from './BrewCard';
 
-const peanuts = {
+const beer = {
   id: '10-56-brewing-company-knox',
   name: '10-56 Brewing Company',
   brewery_type: 'micro',
@@ -22,18 +22,18 @@ const peanuts = {
 };
 
 test('renders a brewCard', async () => {
-  render(<BrewCard breweries={[peanuts]} />);
+  render(<BrewCard breweries={[beer]} />);
   // what is the peanuts={[peanuts]} here? is the left the prop? the right banana?
 
   //   const { name, city, state, brewery_type } = brewery;
 
-  const brewName = await screen.findByRole('heading', { name: peanuts.name });
+  const brewName = await screen.findByRole('heading', { name: beer.name });
   expect(brewName).toBeInTheDocument();
 
-  const brewLocation = screen.getByText(`${peanuts.city}, ${peanuts.state}`);
+  const brewLocation = screen.getByText(`${beer.city}, ${beer.state}`);
   expect(brewLocation).toBeInTheDocument();
 
-  const brewType = await screen.findByText(peanuts.brewery_type);
+  const brewType = await screen.findByText(beer.brewery_type);
   expect(brewType).toBeInTheDocument();
   screen.debug();
 });
