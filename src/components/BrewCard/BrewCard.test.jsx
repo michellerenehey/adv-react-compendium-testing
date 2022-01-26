@@ -23,9 +23,6 @@ const beer = {
 
 test('renders a brewCard', async () => {
   render(<BrewCard breweries={[beer]} />);
-  // what is the peanuts={[peanuts]} here? is the left the prop? the right banana?
-
-  //   const { name, city, state, brewery_type } = brewery;
 
   const brewName = await screen.findByRole('heading', { name: beer.name });
   expect(brewName).toBeInTheDocument();

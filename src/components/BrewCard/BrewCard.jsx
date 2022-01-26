@@ -1,7 +1,6 @@
 import './BrewCard.css';
 
 export default function BrewCard({ breweries }) {
-  // console.log(breweries);
   return (
     <ul className="brewCard">
       {breweries.map((brew) => (

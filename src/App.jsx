@@ -15,7 +15,6 @@ function App() {
       const data = await fetchBrews(type);
       setBreweries(data);
       setLoading(false);
-      // console.log(data);
     };
     fetchData();
   }, [type]);
