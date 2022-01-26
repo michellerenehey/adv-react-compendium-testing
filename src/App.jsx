@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { fetchBrews } from './services/breweries';
 import BrewCard from './components/BrewCard/BrewCard';
-import Controls from './components/BrewCard/Controls/Controls';
+import Controls from './components/Controls/Controls';
 
 function App() {
   const [breweries, setBreweries] = useState([]);
@@ -15,7 +15,7 @@ function App() {
       const data = await fetchBrews(type);
       setBreweries(data);
       setLoading(false);
-      console.log(data);
+      // console.log(data);
     };
     fetchData();
   }, [type]);

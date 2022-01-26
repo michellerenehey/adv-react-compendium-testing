@@ -1,20 +1,19 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders the control panel', () => {
+test('renders the header and control panel', async () => {
   render(<App />);
+
+  const header = await screen.findByRole('heading', { name: /breweries!/i });
+  expect(header).toBeInTheDocument();
+
+  const controls = await screen.findByRole('combobox');
+  expect(controls).toBeInTheDocument();
 });
 
-// test controls
-// findbyRole menuitem
-
-test('renders the brewCard', () => {
+test('renders a list of breweries on page load with default type setting', async () => {
   render(<App />);
-});
-// test brewCard
 
-test('filters brewery types', () => {
-  render(<App/>); 
+  const types = await screen.findAllByRole('listitem');
+  expect(types).toHaveLength(20);
 });
-
-https://github.com/alchemycodelab/september-2021-module-03-advanced-react/blob/main/week_1/block_a/adv-react-compendium-testing/src/App.test.jsx
