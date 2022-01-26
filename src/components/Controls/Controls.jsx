@@ -2,7 +2,7 @@ import './Controls.css';
 
 export default function Controls({ type, setType }) {
   return (
-    <div>
+    <label>
       <select value={type} onChange={(e) => setType(e.target.value)}>
         <option>all</option>
         <option>micro</option>
@@ -16,6 +16,6 @@ export default function Controls({ type, setType }) {
         <option>proprietor</option>
         <option>closed</option>
       </select>
-    </div>
+    </label>
   );
 }
