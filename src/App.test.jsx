@@ -21,7 +21,7 @@ test('renders a list of breweries on page load with default type setting', async
   expect(types).toHaveLength(20);
 });
 
-test('we can filter breweries by_type', async () => {
+test('we can filter breweries by_type from dropdown', async () => {
   render(<App />);
 
   const controls = await screen.findByRole('combobox');
