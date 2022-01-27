@@ -7,6 +7,7 @@ export async function fetchBrews(type) {
 
   const response = await fetch(`https://api.openbrewerydb.org/breweries?${params.toString()}`);
 
-  const data = response.json();
+  const data = await response.json();
+  console.log('DATA RESPONSE', data);
   return data;
 }
