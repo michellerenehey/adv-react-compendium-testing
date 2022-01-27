@@ -1,0 +1,13 @@
+.brewCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+}
+.cardStyle {
+  border-radius: 10px;
+  border: black solid 2px;
+  margin: 10px;
+  width: 50vw;
+}
