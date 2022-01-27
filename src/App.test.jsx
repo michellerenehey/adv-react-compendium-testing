@@ -1,30 +1,36 @@
-// import { render, screen, waitForElementToBeRemoved } from '@testing-library/react';
-// import App from './App';
-// import userEvent from '@testing-library/user-event';
+import { render, screen } from '@testing-library/react';
+import BrewCard from './BrewCard';
 
-// test('renders the header and control panel', async () => {
-//   render(<App />);
+const beer = {
+  id: '10-56-brewing-company-knox',
+  name: '10-56 Brewing Company',
+  brewery_type: 'micro',
+  street: '400 Brown Cir',
+  address_2: null,
+  address_3: null,
+  city: 'Knox',
+  state: 'Indiana',
+  county_province: null,
+  postal_code: '46534',
+  country: 'United States',
+  longitude: '-86.627954',
+  latitude: '41.289715',
+  phone: '6308165790',
+  website_url: null,
+  updated_at: '2021-10-23T02:24:55.243Z',
+  created_at: '2021-10-23T02:24:55.243Z',
+};
 
-//   await waitForElementToBeRemoved(await screen.findByText('Loading...'), { timeout: 5000 });
+test('renders a brewCard', async () => {
+  render(<BrewCard breweries={[beer]} />);
 
-//   const header = await screen.findByRole('heading', { name: /breweries!/i });
-//   expect(header).toBeInTheDocument();
+  const brewName = await screen.findByRole('heading', { name: beer.name });
+  expect(brewName).toBeInTheDocument();
 
-//   const controls = await screen.findByRole('combobox');
-//   expect(controls).toBeInTheDocument();
-// });
+  const brewLocation = screen.getByText(`${beer.city}, ${beer.state}`);
+  expect(brewLocation).toBeInTheDocument();
 
-// test('renders a list of breweries on page load with default type setting', async () => {
-//   render(<App />);
-
-//   const types = await screen.findAllByRole('listitem');
-//   expect(types).toHaveLength(20);
-// });
-
-// test('we can filter breweries by_type from dropdown', async () => {
-//   render(<App />);
-
-//   const controls = await screen.findByRole('combobox');
-//   userEvent.selectOptions(controls, [screen.getByText('all')]);
-//   expect(screen.getByRole('option', { name: 'all' }).selected).toBe(true);
-// });
+  const brewType = await screen.findByText(beer.brewery_type);
+  expect(brewType).toBeInTheDocument();
+  screen.debug();
+});
