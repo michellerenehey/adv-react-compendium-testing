@@ -1,4 +1,4 @@
-import { render, screen, waitForElementToBeRemoved } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import App from './App';
 import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
@@ -55,7 +55,6 @@ const server = setupServer(
 // listen for server start
 beforeAll(() => server.listen());
 
-// console.log('SERVER', server);
 // close server when done
 afterAll(() => server.close());
 
@@ -71,7 +70,7 @@ test('renders the header and control panel', async () => {
 });
 
 // TEST 2
-test.only('renders a list of breweries on page load with default type setting', async () => {
+test('renders a list of breweries on page load with default type setting', async () => {
   render(<App />);
 
   const types = await screen.findAllByRole('listitem');
@@ -79,7 +78,7 @@ test.only('renders a list of breweries on page load with default type setting', 
 });
 
 // TEST 3
-test('we can filter breweries by_type from dropdown', async () => {
+test.only('we can filter breweries by_type from dropdown', async () => {
   render(<App />);
 
   const controls = await screen.findByRole('combobox');
