@@ -26,7 +26,7 @@ const mockResponse = [
     created_at: '2021-10-23T02:24:55.243Z',
   },
   {
-    id: '10-torr-distilling-and-brewing-reno',
+    id: '11-torr-distilling-and-brewing-reno',
     name: '10 Torr Distilling and Brewing',
     brewery_type: 'micro',
     street: '490 Mill St',
@@ -49,22 +49,19 @@ const mockResponse = [
 // set up server
 const server = setupServer(
   rest.get('https://api.openbrewerydb.org/breweries', (req, res, ctx) => {
-    // const select = req.url.searchParams.get('micro');
-    return res(ctx.json([mockResponse]));
+    return res(ctx.json(mockResponse));
   })
 );
 // listen for server start
 beforeAll(() => server.listen());
 
-// console.log(server);
+// console.log('SERVER', server);
 // close server when done
 afterAll(() => server.close());
 
 // TEST 1
-test.only('renders the header and control panel', async () => {
+test('renders the header and control panel', async () => {
   render(<App />);
-
-  //   await waitForElementToBeRemoved(await screen.findByText('Loading...'), { timeout: 5000 });
 
   const header = await screen.findByRole('heading', { name: /breweries!/i });
   expect(header).toBeInTheDocument();
@@ -74,11 +71,11 @@ test.only('renders the header and control panel', async () => {
 });
 
 // TEST 2
-test('renders a list of breweries on page load with default type setting', async () => {
+test.only('renders a list of breweries on page load with default type setting', async () => {
   render(<App />);
 
   const types = await screen.findAllByRole('listitem');
-  expect(types).toHaveLength(20);
+  expect(types).toHaveLength(2);
 });
 
 // TEST 3
