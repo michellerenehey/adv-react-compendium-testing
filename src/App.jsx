@@ -11,16 +11,17 @@ function App() {
   const [type, setType] = useState('all');
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
+  const [zipcode, setZipcode] = useState('');
 
   // data call
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchBrews(type, currentPage);
+      const data = await fetchBrews(type, currentPage, zipcode);
       setBreweries(data);
       setLoading(false);
     };
     fetchData();
-  }, [type, currentPage]);
+  }, [type, currentPage, zipcode]);
 
   // pagination functions
   const handlePrevPage = () => {
@@ -39,7 +40,7 @@ function App() {
   return (
     <div className="App" style={{ backgroundImage: `url(${background})` }}>
       <h1 className="brewery-header">FIND-A-BREWERY!</h1>
-      <Controls type={type} setType={setType} />
+      <Controls type={type} setType={setType} zipcode={zipcode} setZipcode={setZipcode} />
       <BrewCard breweries={breweries} />
       <div className="pagination">
         <p className="currentPage">Current Page: {currentPage}</p>

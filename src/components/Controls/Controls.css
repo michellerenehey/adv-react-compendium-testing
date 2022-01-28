@@ -1,12 +1,21 @@
-.dropdown {
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.dropdown,
+.zipcode {
   display: flex;
   flex-direction: column;
   font-family: 'Supermercado One', cursive;
   font-size: 3vh;
   color: rgba(232, 71, 109, 0.988);
+  margin: 10px;
 }
 
-.dropdown-select {
+.dropdown-select,
+.zipcode-input {
   background-color: white;
   border: thin solid rgba(232, 71, 109, 0.988);
   border-radius: 4px;
