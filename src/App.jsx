@@ -4,6 +4,7 @@ import { fetchBrews } from './services/breweries';
 import BrewCard from './components/BrewCard/BrewCard';
 import Controls from './components/Controls/Controls';
 import background from './assets/pattern.png';
+import Button from '@mui/material/Button';
 
 function App() {
   const [breweries, setBreweries] = useState([]);
@@ -42,14 +43,26 @@ function App() {
       <BrewCard breweries={breweries} />
       <div className="pagination">
         <p className="currentPage">Current Page: {currentPage}</p>
-        {currentPage !== 1 && (
-          <button className="pagination-button" onClick={handlePrevPage}>
-            Prev Page
-          </button>
-        )}
-        <button className="pagination-button" onClick={handleNextPage}>
-          Next Page
-        </button>
+        <div className="button-space">
+          {currentPage !== 1 && (
+            <Button
+              variant="contained"
+              color="secondary"
+              className="pagination-button"
+              onClick={handlePrevPage}
+            >
+              Prev Page
+            </Button>
+          )}
+          <Button
+            variant="contained"
+            color="secondary"
+            className="pagination-button"
+            onClick={handleNextPage}
+          >
+            Next Page
+          </Button>
+        </div>
       </div>
     </div>
   );
