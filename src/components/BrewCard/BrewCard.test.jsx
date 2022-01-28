@@ -30,7 +30,6 @@ test('renders a brewCard', async () => {
   const brewLocation = screen.getByText(`${beer.city}, ${beer.state}`);
   expect(brewLocation).toBeInTheDocument();
 
-  const brewType = await screen.findByText(beer.brewery_type);
+  const brewType = await screen.findByText(`brewery type: ${beer.brewery_type}`);
   expect(brewType).toBeInTheDocument();
-  screen.debug();
 });

@@ -1,3 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Supermercado+One&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
+  /* margin: 0; */
   text-align: center;
+}
+
+.brewery-header {
+  color: rgba(232, 71, 109, 0.988);
+  background-color: rgba(247, 247, 247, 0.379);
+  font-family: 'Supermercado One', cursive;
+  font-size: 10vh;
+  margin: 0px;
+}
+
+.pagination {
+  margin-top: 20px;
+}
+
+.currentPage {
+  font-family: 'Supermercado One', cursive;
+  font-size: 4vh;
+  color: rgba(232, 71, 109, 0.988);
+}
+
+.button-space {
+  display: flex;
+  justify-content: space-around;
 }
