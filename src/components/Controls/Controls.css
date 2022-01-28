@@ -1,0 +1,16 @@
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Supermercado One', cursive;
+  font-size: 3vh;
+  color: rgba(232, 71, 109, 0.988);
+}
+
+.dropdown-select {
+  background-color: white;
+  border: thin solid rgba(232, 71, 109, 0.988);
+  border-radius: 4px;
+  font: inherit;
+  padding: 0.5em 1em 0.5em 1em;
+  font-size: 2vh;
+}
