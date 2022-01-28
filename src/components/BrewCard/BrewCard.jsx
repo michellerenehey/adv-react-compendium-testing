@@ -5,11 +5,14 @@ export default function BrewCard({ breweries }) {
     <ul className="brewCard">
       {breweries.map((brew) => (
         <li key={brew.id} className="cardStyle">
-          <h3>{brew.name}</h3>
+          <h3>
+            <a href={brew.website_url}>{brew.name}</a>
+          </h3>
+          <p>{brew.street}</p>
           <p>
             {brew.city}, {brew.state}
           </p>
-          <p>{brew.brewery_type}</p>
+          <p>brewery type: {brew.brewery_type}</p>
         </li>
       ))}
     </ul>
