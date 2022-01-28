@@ -32,5 +32,4 @@ test('renders a brewCard', async () => {
 
   const brewType = await screen.findByText(beer.brewery_type);
   expect(brewType).toBeInTheDocument();
-  screen.debug();
 });

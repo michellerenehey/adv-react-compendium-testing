@@ -214,7 +214,7 @@ afterAll(() => server.close());
 test('renders the header and control panel', async () => {
   render(<App />);
 
-  const header = await screen.findByRole('heading', { name: /breweries!/i });
+  const header = await screen.findByRole('heading', { name: /find-a-brewery!/i });
   expect(header).toBeInTheDocument();
 
   const controls = await screen.findByRole('combobox');
