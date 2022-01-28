@@ -233,7 +233,16 @@ test('renders a list of breweries on page load with default type setting', async
 test('we can filter breweries by_type from dropdown', async () => {
   render(<App />);
 
-  const controls = await screen.findByRole('combobox');
-  userEvent.selectOptions(controls, [screen.getByText('all')]);
+  const byType = await screen.findByRole('combobox');
+  userEvent.selectOptions(byType, [screen.getByText('all')]);
   expect(screen.getByRole('option', { name: 'all' }).selected).toBe(true);
+});
+
+// TEST 4
+test('we can search breweries by_zipcode from input', async () => {
+  render(<App />);
+
+  const searchbar = await screen.findByRole('textbox');
+  userEvent.type(searchbar, '46534');
+  expect(searchbar).toHaveValue('46534');
 });
