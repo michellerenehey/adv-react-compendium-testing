@@ -8,7 +8,7 @@ import { setupServer } from 'msw/node';
 const mockResponse = [
   {
     id: '10-56-brewing-company-knox',
-    name: '10-56 Brewing Company',
+    name: 'MOCK MOCK MOCK 10-56 Brewing Company',
     brewery_type: 'micro',
     street: '400 Brown Cir',
     address_2: null,
@@ -27,7 +27,7 @@ const mockResponse = [
   },
   {
     id: '10-barrel-brewing-co-bend-1',
-    name: '10 Barrel Brewing Co',
+    name: 'MOCK MOCK MOCK 10 Barrel Brewing Co',
     brewery_type: 'large',
     street: '62970 18th St',
     address_2: null,
@@ -46,7 +46,7 @@ const mockResponse = [
   },
   {
     id: '10-barrel-brewing-co-bend-2',
-    name: '10 Barrel Brewing Co',
+    name: 'MOCK MOCK MOCK 10 Barrel Brewing Co',
     brewery_type: 'large',
     street: '1135 NW Galveston Ave Ste B',
     address_2: null,
@@ -65,7 +65,7 @@ const mockResponse = [
   },
   {
     id: '10-barrel-brewing-co-bend-pub-bend',
-    name: '10 Barrel Brewing Co - Bend Pub',
+    name: 'MOCK MOCK MOCK 10 Barrel Brewing Co - Bend Pub',
     brewery_type: 'large',
     street: '62950 NE 18th St',
     address_2: null,
