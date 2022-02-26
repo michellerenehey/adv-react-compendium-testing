@@ -1,27 +1,24 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import './App.css';
-import { fetchBrews } from './services/breweries';
+// import { fetchBrews } from './services/breweries';
 import BrewCard from './components/BrewCard/BrewCard';
 import Controls from './components/Controls/Controls';
 import background from './assets/pattern.png';
 import Button from '@mui/material/Button';
+import { useBreweries } from './hooks/useBreweries';
 
 function App() {
-  const [breweries, setBreweries] = useState([]);
-  const [type, setType] = useState('all');
-  const [loading, setLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [zipcode, setZipcode] = useState('');
-
-  // data call
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetchBrews(type, currentPage, zipcode);
-      setBreweries(data);
-      setLoading(false);
-    };
-    fetchData();
-  }, [type, currentPage, zipcode]);
+  const {
+    type,
+    setType,
+    currentPage,
+    setCurrentPage,
+    zipcode,
+    setZipcode,
+    breweries,
+    loading,
+    setLoading,
+  } = useBreweries();
 
   // pagination functions
   const handlePrevPage = () => {
